@@ -26,12 +26,29 @@ DISCORD_CLIENT_ID=
 DISCORD_CLIENT_SECRET=
 ```
 
-### Database
+## Database
 
 We're using [Drizzle](https://orm.drizzle.team/) as our database ORM.
+
+### Schema
+
+The schema is defined in `src/server/db/schema/*.ts`.
 
 ### Database Migrations
 
 To create a new migration, run `bun run db:generate`.
 
 To apply the migration, run `bun run db:migrate`.
+
+### Database Studio
+
+You can use the [Drizzle Studio](https://orm.drizzle.team/studio) to view the database.
+
+To start the studio, run `bun run db:studio`.
+
+
+## Authentication
+
+We're using [NextAuth](https://next-auth.js.org/) to handle authentication.
+
+TBD
