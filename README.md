@@ -1,29 +1,37 @@
-# Create T3 App
+# IndieGig
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+IndieGig is a platform for developers to find gigs and work together on projects as well as companies to find developers for their projects.
 
-## What's next? How do I make an app with this?
+## Environment Variables
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+We're using [T3-OSS Env](https://github.com/t3-oss/env-nextjs) to manage environment variables.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+Create a `.env` file with the following variables:
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### Database
+```
+TURSO_DATABASE_URL=
+TURSO_AUTH_TOKEN=
+```
 
-## Learn More
+### NextAuth
+```
+NEXTAUTH_SECRET=
+NEXTAUTH_URL=
+```
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### Discord
+```
+DISCORD_CLIENT_ID=
+DISCORD_CLIENT_SECRET=
+```
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+### Database
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+We're using [Drizzle](https://orm.drizzle.team/) as our database ORM.
 
-## How do I deploy this?
+### Database Migrations
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+To create a new migration, run `bun run db:generate`.
+
+To apply the migration, run `bun run db:migrate`.
