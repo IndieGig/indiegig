@@ -5,7 +5,7 @@ on:
     pull_request:
 
 jobs:
-    quality:
+    code_quality:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -14,5 +14,9 @@ jobs:
               uses: biomejs/setup-biome@v2
               with:
                   version: latest
-            - name: Run Biome
-              run: biome ci ./src
+            - name: Check code
+              run: biome check
+            - name: Lint code
+              run: biome lint
+            - name: Format code
+              run: biome format
