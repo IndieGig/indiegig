@@ -1,12 +1,5 @@
-import { DiscordLogoIcon } from "@radix-ui/react-icons";
 import { getProviders } from "next-auth/react";
-
-const providerThemes = {
-	discord: {
-		icon: DiscordLogoIcon,
-		color: "bg-blue-500",
-	},
-};
+import OAuthButton from "./_components/oauth-button";
 
 export default async function Page() {
 	const providers = await getProviders();
@@ -16,13 +9,14 @@ export default async function Page() {
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center">
+		<div className="flex flex-col items-center justify-center gap-6">
 			<h1 className="text-4xl font-bold">Sign In</h1>
-			{Object.values(providers).map((provider) => (
-				<div key={provider.name}>
-					<button type="button">Sign in with {provider.name}</button>
-				</div>
-			))}
+
+			<div className="flex flex-col gap-2">
+				{Object.values(providers).map((provider) => (
+					<OAuthButton key={provider.id} provider={provider} />
+				))}
+			</div>
 		</div>
 	);
 }
