@@ -1,4 +1,12 @@
+import { DiscordLogoIcon } from "@radix-ui/react-icons";
 import { getProviders } from "next-auth/react";
+
+const providerThemes = {
+	discord: {
+		icon: DiscordLogoIcon,
+		color: "bg-blue-500",
+	},
+};
 
 export default async function Page() {
 	const providers = await getProviders();
