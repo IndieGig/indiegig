@@ -1,4 +1,4 @@
-import { integer, text, primaryKey } from "drizzle-orm/sqlite-core";
+import { integer, primaryKey, text } from "drizzle-orm/sqlite-core";
 import type { AdapterAccount } from "next-auth/adapters";
 import { createTable } from "./_table";
 import { users } from "./user";
