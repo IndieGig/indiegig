@@ -14,16 +14,10 @@ TURSO_DATABASE_URL=
 TURSO_AUTH_TOKEN=
 ```
 
-### NextAuth
+### Clerk
 ```
-NEXTAUTH_SECRET=
-NEXTAUTH_URL=
-```
-
-### Discord
-```
-DISCORD_CLIENT_ID=
-DISCORD_CLIENT_SECRET=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
 ```
 
 ## Database
@@ -49,6 +43,4 @@ To start the studio, run `bun run db:studio`.
 
 ## Authentication
 
-We're using [NextAuth](https://next-auth.js.org/) to handle authentication.
-
-TBD
+We're using [Clerk](https://clerk.com/) for authentication.
