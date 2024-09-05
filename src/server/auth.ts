@@ -53,6 +53,9 @@ export const authOptions: NextAuthOptions = {
       clientSecret: env.DISCORD_CLIENT_SECRET,
     }),
   ],
+  pages: {
+    signIn: "/sign-in",
+  },
 };
 
 export const getServerAuthSession = () => getServerSession(authOptions);
