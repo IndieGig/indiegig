@@ -5,15 +5,15 @@ import { env } from "@/env";
 import * as schema from "./schema";
 
 const globalForDb = globalThis as unknown as {
-  conn: ReturnType<typeof createClient> | undefined;
+	conn: ReturnType<typeof createClient> | undefined;
 };
 
 const conn =
-  globalForDb.conn ??
-  createClient({
-    url: env.TURSO_DATABASE_URL,
-    authToken: env.TURSO_AUTH_TOKEN,
-  });
+	globalForDb.conn ??
+	createClient({
+		url: env.TURSO_DATABASE_URL,
+		authToken: env.TURSO_AUTH_TOKEN,
+	});
 
 if (env.NODE_ENV !== "production") globalForDb.conn = conn;
 
