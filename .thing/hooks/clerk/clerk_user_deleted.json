@@ -1,0 +1,15 @@
+{
+	"data": {
+		"deleted": true,
+		"id": "",
+		"object": "user"
+	},
+	"event_attributes": {
+		"http_request": {
+			"client_ip": "",
+			"user_agent": ""
+		}
+	},
+	"object": "event",
+	"type": "user.deleted"
+}
