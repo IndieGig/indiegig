@@ -33,6 +33,8 @@ The schema is defined in `src/server/db/schema/*.ts`.
 
 ### Database Migrations
 
+For a new database you can do `bun run db:push` to push the schema to the database.
+
 To create a new migration, run `bun run db:generate`.
 
 To apply the migration, run `bun run db:migrate`.
