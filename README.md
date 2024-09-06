@@ -18,6 +18,9 @@ TURSO_AUTH_TOKEN=
 ```
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+CLERK_WEBHOOK_SECRET=
 ```
 
 ## Database
@@ -44,3 +47,11 @@ To start the studio, run `bun run db:studio`.
 ## Authentication
 
 We're using [Clerk](https://clerk.com/) for authentication.
+
+### Webhooks
+
+We're using [Clerk's Webhooks](https://clerk.com/docs/integrations/webhooks/sync-data) to handle events such as user creation and deletion.
+
+To handle the webhooks, we're using the `POST /api/webhook/clerk` route.
+
+The webhook handler is defined in `src/app/api/webhook/clerk/route.ts`.
