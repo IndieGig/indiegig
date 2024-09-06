@@ -42,8 +42,24 @@ export async function POST(req: Request) {
 	try {
 		switch (eventType) {
 			case "user.created":
+				const email = evt.data.email_addresses.find(
+					(e) => e.id === evt.data.primary_email_address_id,
+				)?.email_address;
+				const firstName = evt.data.first_name;
+				const lastName = evt.data.last_name;
+				const username = evt.data.username;
+
+				if (!email || !firstName || !lastName || !username) {
+					throw new Error("Invalid user created event");
+				}
+
 				await db.insert(users).values({
 					clerkId: evt.data.id,
+					email,
+					firstName: evt.data.first_name!,
+					lastName: evt.data.last_name!,
+					username: evt.data.username!,
+					imageUrl: evt.data.image_url,
 				});
 				break;
 
