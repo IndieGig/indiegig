@@ -18,3 +18,6 @@ export const users = createTable("users", {
 		() => new Date(),
 	),
 });
+
+export type InsertUser = typeof users.$inferInsert;
+export type SelectUser = typeof users.$inferSelect;
