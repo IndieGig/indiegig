@@ -32,10 +32,12 @@ export default function RootLayout({
 								enableSystem
 								disableTransitionOnChange
 							>
-								<main className="relative">
+								<main className="relative flex flex-col min-h-screen">
 									<Navbar />
 
-									<div className="pt-24 md:pt-32">{children}</div>
+									<div className="pt-24 md:pt-32 flex-1 flex flex-col">
+										{children}
+									</div>
 								</main>
 							</ThemeProvider>
 						</TRPCProvider>
