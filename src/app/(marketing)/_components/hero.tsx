@@ -32,14 +32,14 @@ export default function Hero() {
 			<SignedIn>
 				<Link href="/dashboard" passHref className="mt-8">
 					<PulsatingButton>
-						<span className="text-foreground">View Dashboard</span>
+						<span className="text-white">View Dashboard</span>
 					</PulsatingButton>
 				</Link>
 			</SignedIn>
 			<SignedOut>
 				<SignInButton>
 					<PulsatingButton className="mt-8">
-						<span className="text-foreground">Get Started</span>
+						<span className="text-white">Get Started</span>
 					</PulsatingButton>
 				</SignInButton>
 			</SignedOut>
