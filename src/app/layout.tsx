@@ -21,7 +21,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<ClerkProvider>
-			<html lang="en" className={`${GeistSans.variable}`}>
+			<html lang="en" className={`${GeistSans.variable} scroll-smooth`}>
 				<body>
 					<TRPCReactProvider>
 						<TRPCProvider>
@@ -32,8 +32,11 @@ export default function RootLayout({
 								enableSystem
 								disableTransitionOnChange
 							>
-								<Navbar />
-								{children}
+								<main className="relative">
+									<Navbar />
+
+									<div className="pt-24 md:pt-32">{children}</div>
+								</main>
 							</ThemeProvider>
 						</TRPCProvider>
 					</TRPCReactProvider>

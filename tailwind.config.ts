@@ -17,6 +17,7 @@ export default {
 			colors: {
 				background: "hsl(var(--background))",
 				foreground: "hsl(var(--foreground))",
+				header: "hsl(var(--header))",
 				card: {
 					DEFAULT: "hsl(var(--card))",
 					foreground: "hsl(var(--card-foreground))",
@@ -59,12 +60,17 @@ export default {
 			},
 			animation: {
 				gradient: "gradient 8s linear infinite",
+				pulse: "pulse var(--duration) ease-out infinite",
 			},
 			keyframes: {
 				gradient: {
 					to: {
 						backgroundPosition: "var(--bg-size) 0",
 					},
+				},
+				pulse: {
+					"0%, 100%": { boxShadow: "0 0 0 0 var(--pulse-color)" },
+					"50%": { boxShadow: "0 0 0 8px var(--pulse-color)" },
 				},
 			},
 		},

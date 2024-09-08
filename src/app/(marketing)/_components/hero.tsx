@@ -1,12 +1,15 @@
+import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
+import PulsatingButton from "@/components/magicui/pulsating-button";
 import SparklesText from "@/components/magicui/sparkles-text";
 import { cn } from "@/lib/utils";
 
 export default function Hero() {
 	return (
-		<div className="pt-6 md:pt-12 text-center">
+		<div className="text-center flex flex-col items-center justify-center">
 			<AnimatedGradientText>
 				🎉 <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />{" "}
 				<span
@@ -25,6 +28,21 @@ export default function Hero() {
 				IndieGig is a platform for developers to find gigs and work together on
 				projects as well as companies to find developers for their projects.
 			</p>
+
+			<SignedIn>
+				<Link href="/dashboard" passHref className="mt-8">
+					<PulsatingButton>
+						<span className="text-foreground">View Dashboard</span>
+					</PulsatingButton>
+				</Link>
+			</SignedIn>
+			<SignedOut>
+				<SignInButton>
+					<PulsatingButton className="mt-8">
+						<span className="text-foreground">Get Started</span>
+					</PulsatingButton>
+				</SignInButton>
+			</SignedOut>
 		</div>
 	);
 }
