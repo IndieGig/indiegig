@@ -19,6 +19,18 @@ export const metadata: Metadata = {
 	description:
 		"IndieGig is a platform for developers to find gigs and work together on projects as well as companies to find developers for their projects.",
 	icons: [{ rel: "icon", url: "/favicon.ico" }],
+	openGraph: {
+		title: "IndieGig",
+		description:
+			"IndieGig is a platform for developers to find gigs and work together on projects as well as companies to find developers for their projects.",
+		images: [
+			{
+				url: "https://indiegig.vercel.app/og-image.png",
+				width: 1200,
+				height: 630,
+			},
+		],
+	},
 };
 
 export default function RootLayout({
