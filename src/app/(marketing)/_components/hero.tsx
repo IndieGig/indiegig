@@ -22,11 +22,16 @@ export default function Hero() {
 				<ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
 			</AnimatedGradientText>
 
-			<SparklesText text="IndieGig" className="tracking-wider mt-4" />
+			<SparklesText
+				text="Get freelance leads on autopilot"
+				className="tracking-wider mt-4 max-w-2xl mx-auto"
+			/>
 
 			<p className="text-lg text-muted-foreground mt-4 max-w-lg mx-auto">
-				IndieGig is a platform for developers to find gigs and work together on
-				projects as well as companies to find developers for their projects.
+				Seamlessly connect with premium clients, manage projects with ease, and
+				secure payments instantly. Whether you're just starting out or a
+				seasoned professional, IndieGig is your one-stop platform for freelance
+				success.
 			</p>
 
 			<SignedIn>
