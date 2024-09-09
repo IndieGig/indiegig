@@ -4,7 +4,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 
-import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import TRPCProvider from "@/components/trpc-provider";
 import { TRPCReactProvider } from "@/trpc/react";
@@ -32,13 +31,7 @@ export default function RootLayout({
 								enableSystem
 								disableTransitionOnChange
 							>
-								<main className="relative flex flex-col min-h-screen">
-									<Navbar />
-
-									<div className="pt-24 md:pt-32 flex-1 flex flex-col">
-										{children}
-									</div>
-								</main>
+								{children}
 							</ThemeProvider>
 						</TRPCProvider>
 					</TRPCReactProvider>

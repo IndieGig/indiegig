@@ -5,11 +5,17 @@ import Link from "next/link";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import PulsatingButton from "@/components/magicui/pulsating-button";
 import SparklesText from "@/components/magicui/sparkles-text";
+import { Spotlight } from "@/components/ui/spotlight";
 import { cn } from "@/lib/utils";
 
 export default function Hero() {
 	return (
 		<div className="text-center flex flex-col items-center justify-center">
+			<Spotlight
+				className="-top-40 left-0 md:left-60 md:-top-20"
+				fill="white"
+			/>
+
 			<AnimatedGradientText>
 				🎉 <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />{" "}
 				<span
@@ -35,18 +41,27 @@ export default function Hero() {
 			</p>
 
 			<SignedIn>
-				<Link href="/dashboard" passHref className="mt-8">
+				<Link href="/dashboard" passHref className="mt-6">
 					<PulsatingButton>
 						<span className="text-white">View Dashboard</span>
 					</PulsatingButton>
 				</Link>
 			</SignedIn>
+
 			<SignedOut>
-				<SignInButton>
-					<PulsatingButton className="mt-8">
-						<span className="text-white">Get Started</span>
-					</PulsatingButton>
-				</SignInButton>
+				<div className="flex gap-6 mt-6">
+					<SignInButton>
+						<PulsatingButton>
+							<span className="text-white">Hire Top Talent</span>
+						</PulsatingButton>
+					</SignInButton>
+
+					<SignInButton>
+						<PulsatingButton>
+							<span className="text-white">Find Jobs</span>
+						</PulsatingButton>
+					</SignInButton>
+				</div>
 			</SignedOut>
 		</div>
 	);

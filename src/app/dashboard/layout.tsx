@@ -6,9 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 			<Navbar />
 
 			<div className="pt-24 md:pt-32 flex-1 flex flex-col">
-				<div className="flex flex-1 flex-col items-center justify-center">
-					{children}
-				</div>
+				<div className="flex flex-1 flex-col">{children}</div>
 			</div>
 		</main>
 	);

@@ -61,6 +61,7 @@ export default {
 			animation: {
 				gradient: "gradient 8s linear infinite",
 				pulse: "pulse var(--duration) ease-out infinite",
+				spotlight: "spotlight 2s ease .75s 1 forwards",
 			},
 			keyframes: {
 				gradient: {
@@ -71,6 +72,16 @@ export default {
 				pulse: {
 					"0%, 100%": { boxShadow: "0 0 0 0 var(--pulse-color)" },
 					"50%": { boxShadow: "0 0 0 8px var(--pulse-color)" },
+				},
+				spotlight: {
+					"0%": {
+						opacity: "0",
+						transform: "translate(-72%, -62%) scale(0.5)",
+					},
+					"100%": {
+						opacity: "1",
+						transform: "translate(-50%,-40%) scale(1)",
+					},
 				},
 			},
 		},
