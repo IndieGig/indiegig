@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 			"IndieGig is a platform for developers to find gigs and work together on projects as well as companies to find developers for their projects.",
 		images: [
 			{
-				url: "https://indiegig.vercel.app/og-image.png",
+				url: "https://indiegig.vercel.app/og-image.jpg",
 				width: 1200,
 				height: 630,
 			},
