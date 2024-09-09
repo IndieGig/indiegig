@@ -9,7 +9,7 @@ export default function Navbar() {
 	return (
 		<header className="fixed top-4 left-4 right-4 z-50">
 			<nav className="backdrop-blur-sm bg-header/[0.02] border border-header/50 rounded-2xl mx-auto">
-				<div className="max-w-7xl mx-auto px-4">
+				<div className="mx-auto px-4">
 					<div className="flex justify-between items-center py-2">
 						<div className="flex-shrink-0">
 							<Link href="/" className="flex items-center">
