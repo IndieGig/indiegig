@@ -1,7 +1,8 @@
+import Link from "next/link";
+
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Separator } from "@/components/ui/separator";
 import { SiGithub, SiInstagram, SiX } from "@icons-pack/react-simple-icons";
-import Link from "next/link";
 
 export default function Footer() {
 	return (
