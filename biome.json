@@ -98,5 +98,8 @@
 				}
 			}
 		}
-	]
+	],
+	"files": {
+		"ignore": ["src/styles/*.css"]
+	}
 }
