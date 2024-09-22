@@ -20,7 +20,7 @@ export default function TopGigs() {
 				</Button>
 			</div>
 
-			<Carousel className="w-full relative">
+			<Carousel className="w-full relative" opts={{ loop: true }}>
 				<CarouselContent className="-ml-4">
 					{Array.from({ length: 10 }).map((_, index) => (
 						<CarouselItem
