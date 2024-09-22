@@ -12,6 +12,7 @@ export default async function Banner() {
 				src="/demonslayer.webp"
 				alt="Demon Slayer"
 				fill
+				priority
 				className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
 			/>
 			<div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/80 z-[-1]"></div>
