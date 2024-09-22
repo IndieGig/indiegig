@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
 	return (
-		<header className="fixed top-4 left-4 right-4 z-50">
-			<nav className="backdrop-blur-sm bg-header/[0.02] border border-header/50 rounded-2xl mx-auto">
+		<header className="fixed w-full z-50">
+			<nav className="backdrop-blur-sm bg-header/[0.02] border-b border-header/50 w-full">
 				<div className="mx-auto px-4">
 					<div className="flex justify-between items-center py-2">
 						<div className="flex-shrink-0">
