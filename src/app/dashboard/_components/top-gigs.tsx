@@ -25,7 +25,7 @@ export default function TopGigs() {
 					{Array.from({ length: 10 }).map((_, index) => (
 						<CarouselItem
 							key={index}
-							className="pl-4 md:basis-1/2 lg:basis-1/3"
+							className="pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/5"
 						>
 							<GigCard />
 						</CarouselItem>
