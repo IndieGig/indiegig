@@ -21,11 +21,11 @@ export default function TopGigs() {
 			</div>
 
 			<Carousel className="w-full relative">
-				<CarouselContent className="-ml-1">
+				<CarouselContent className="-ml-4">
 					{Array.from({ length: 10 }).map((_, index) => (
 						<CarouselItem
 							key={index}
-							className="pl-1 md:basis-1/2 lg:basis-1/3"
+							className="pl-4 md:basis-1/2 lg:basis-1/3"
 						>
 							<GigCard />
 						</CarouselItem>
