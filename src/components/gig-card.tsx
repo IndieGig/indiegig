@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { CircleDollarSign } from "lucide-react";
 import Image from "next/image";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -9,7 +9,7 @@ export function GigCard() {
 		<div className="flex flex-col gap-y-2">
 			<div className="aspect-video relative">
 				<Image
-					src="/demonslayer.webp"
+					src="/gig-image.jpeg"
 					alt="placeholder"
 					fill
 					className="rounded-lg object-cover"
@@ -32,9 +32,14 @@ export function GigCard() {
 					</div>
 				</div>
 
-				<h3 className="font-semibold text-lg truncate mt-2">Gig Title Here</h3>
+				<h3 className="text-lg line-clamp-2 mt-1 leading-snug">
+					I will build you your own custom discord bot
+				</h3>
 
-				<p className="font-bold mt-1">From $99</p>
+				<div className="flex items-center gap-x-1 mt-1">
+					<CircleDollarSign className="size-4" />
+					<span className="font-bold">99 USD</span>
+				</div>
 			</div>
 		</div>
 	);
