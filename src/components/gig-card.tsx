@@ -1,8 +1,8 @@
+import { StarFilledIcon } from "@radix-ui/react-icons";
 import { CircleDollarSign } from "lucide-react";
 import Image from "next/image";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { StarFilledIcon } from "@radix-ui/react-icons";
 
 export function GigCard() {
 	return (
