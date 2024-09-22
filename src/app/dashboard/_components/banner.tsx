@@ -18,7 +18,7 @@ export default async function Banner() {
 			/>
 			<div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/80 z-[-1]"></div>
 
-			<div className="flex flex-col justify-between h-full gap-y-4">
+			<div className="flex flex-col justify-between h-full gap-y-4 container mx-auto">
 				<h3 className="text-2xl font-semibold inline-flex items-center gap-2">
 					Welcome back,
 					<Avatar>
