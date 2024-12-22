@@ -1,4 +1,5 @@
 import { WandSparkles } from "lucide-react";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
@@ -21,7 +22,9 @@ export default function RecommendedActionCard() {
 					</p>
 				</div>
 
-				<Button className="ml-6">Create a Gig</Button>
+				<Link href="/dashboard/create-gig" passHref>
+					<Button className="ml-6">Create a Gig</Button>
+				</Link>
 			</div>
 		</div>
 	);

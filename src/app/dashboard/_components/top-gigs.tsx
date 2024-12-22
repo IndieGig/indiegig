@@ -11,6 +11,27 @@ import {
 } from "@/components/ui/carousel";
 
 export default function TopGigs() {
+	const topGigs = [
+		{
+			title: "I will build you your own custom discord bot",
+			price: 99,
+			imageUrl: "/gig-image.jpeg",
+			creator: { name: "Vanxh", imageUrl: "/demonslayer.webp" },
+		},
+		{
+			title: "I will build you custom thumbnail for your youtube video",
+			price: 99,
+			imageUrl: "/demonslayer.webp",
+			creator: { name: "Vanxh", imageUrl: "/demonslayer.webp" },
+		},
+		{
+			title: "I will build you your own custom discord bot",
+			price: 99,
+			imageUrl: "/gig-image.jpeg",
+			creator: { name: "Vanxh", imageUrl: "/demonslayer.webp" },
+		},
+	];
+
 	return (
 		<div className="flex flex-col gap-2">
 			<div className="flex items-center justify-between">
@@ -22,12 +43,17 @@ export default function TopGigs() {
 
 			<Carousel className="w-full relative" opts={{ loop: true }}>
 				<CarouselContent className="-ml-4">
-					{Array.from({ length: 10 }).map((_, index) => (
+					{topGigs.map((gig, index) => (
 						<CarouselItem
 							key={index}
 							className="pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/5"
 						>
-							<GigCard />
+							<GigCard
+								title={gig.title}
+								price={gig.price}
+								imageUrl={gig.imageUrl}
+								creator={gig.creator}
+							/>
 						</CarouselItem>
 					))}
 				</CarouselContent>

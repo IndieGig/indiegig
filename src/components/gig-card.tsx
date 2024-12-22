@@ -4,12 +4,25 @@ import Image from "next/image";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-export function GigCard() {
+export function GigCard({
+	title,
+	price,
+	imageUrl,
+	creator,
+}: {
+	title: string;
+	price: number;
+	imageUrl: string;
+	creator: {
+		name: string;
+		imageUrl?: string;
+	};
+}) {
 	return (
 		<div className="flex flex-col gap-y-2">
 			<div className="aspect-video relative">
 				<Image
-					src="/gig-image.jpeg"
+					src={imageUrl}
 					alt="placeholder"
 					fill
 					className="rounded-lg object-cover"
@@ -19,10 +32,10 @@ export function GigCard() {
 				<div className="flex items-start justify-between">
 					<div className="inline-flex items-center gap-1">
 						<Avatar className="size-6">
-							<AvatarImage src="/demonslayer.webp" />
-							<AvatarFallback>V</AvatarFallback>
+							<AvatarImage src={creator.imageUrl} />
+							<AvatarFallback>{creator.name.charAt(0)}</AvatarFallback>
 						</Avatar>
-						<span className="text-sm font-bold">Vanxh</span>
+						<span className="text-sm font-bold">{creator.name}</span>
 					</div>
 
 					<div className="flex items-center text-sm">
@@ -32,13 +45,11 @@ export function GigCard() {
 					</div>
 				</div>
 
-				<h3 className="text-lg line-clamp-2 mt-1 leading-snug">
-					I will build you your own custom discord bot
-				</h3>
+				<h3 className="text-lg line-clamp-2 mt-1 leading-snug">{title}</h3>
 
 				<div className="flex items-center gap-x-1 mt-1">
 					<CircleDollarSign className="size-4" />
-					<span className="font-bold">99 USD</span>
+					<span className="font-bold">{price} USD</span>
 				</div>
 			</div>
 		</div>
