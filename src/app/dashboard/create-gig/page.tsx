@@ -29,11 +29,13 @@ import { categories } from "@/lib/category";
 import { UploadButton } from "@/lib/uploadthing";
 import { createGigSchema } from "@/server/api/schema/user";
 import { api } from "@/trpc/react";
+import { useUser } from "@clerk/nextjs";
 
 const formSchema = createGigSchema;
 
 export default function Page() {
 	const router = useRouter();
+	const user = useUser();
 
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
@@ -186,7 +188,10 @@ export default function Page() {
 					title={gigTitle.length ? gigTitle : "This is your gig title"}
 					price={gigPrice ?? 0}
 					imageUrl={gigImageUrl ?? "/demonslayer.webp"}
-					creator={{ name: "Vanxh", imageUrl: "/demonslayer.webp" }}
+					creator={{
+						name: user.user?.fullName ?? "User",
+						imageUrl: user.user?.imageUrl ?? "/demonslayer.webp",
+					}}
 				/>
 			</div>
 		</div>
