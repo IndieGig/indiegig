@@ -25,4 +25,20 @@ export const userRouter = createTRPCRouter({
 
 			return gig;
 		}),
+
+	myGigs: protectedProcedure.query(async ({ ctx }) => {
+		const user = await ctx.db.query.users.findFirst({
+			where: (user, { eq }) => eq(user.clerkId, ctx.userId),
+		});
+
+		if (!user) {
+			throw new Error("User not found");
+		}
+
+		const gigs = await ctx.db.query.gigs.findMany({
+			where: (gigs, { eq }) => eq(gigs.userId, user.id),
+		});
+
+		return gigs;
+	}),
 });
