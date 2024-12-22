@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { categories } from "@/lib/category";
+import { cn } from "@/lib/utils";
 
 export default function Categories() {
 	return (
@@ -17,7 +17,7 @@ export default function Categories() {
 						<div
 							className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-md ${category.color}`}
 						>
-							<category.icon className="h-6 w-6 text-white" />
+							<category.icon className={cn("size-6", category.lightColor)} />
 						</div>
 						<div className="space-y-1 text-center lg:text-left">
 							<h3 className="font-medium text-sm lg:text-base leading-none">

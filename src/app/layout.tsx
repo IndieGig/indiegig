@@ -6,6 +6,7 @@ import type { Metadata, Viewport } from "next";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import TRPCProvider from "@/components/trpc-provider";
+import { Toaster } from "@/components/ui/sonner";
 import { TRPCReactProvider } from "@/trpc/react";
 
 export const viewport: Viewport = {
@@ -49,6 +50,7 @@ export default function RootLayout({
 								disableTransitionOnChange
 							>
 								{children}
+								<Toaster />
 							</ThemeProvider>
 						</TRPCProvider>
 					</TRPCReactProvider>

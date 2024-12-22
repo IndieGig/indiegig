@@ -3,22 +3,23 @@
 		"backup_code_enabled": false,
 		"banned": false,
 		"create_organization_enabled": true,
-		"created_at": 1725656317996,
+		"created_at": 1734893275370,
 		"delete_self_enabled": true,
 		"email_addresses": [
 			{
-				"created_at": 1725656310595,
-				"email_address": "",
-				"id": "",
+				"created_at": 1734893265373,
+				"email_address": "vanxhyt@gmail.com",
+				"id": "idn_2qaGRbh8bR4960Bhf3GfRX98vMX",
 				"linked_to": [
 					{
-						"id": "",
-						"type": ""
+						"id": "idn_2qaGRhU1cIhQhGYVUGLfajVTzoq",
+						"type": "oauth_google"
 					}
 				],
+				"matches_sso_connection": false,
 				"object": "email_address",
 				"reserved": false,
-				"updated_at": 1725656318031,
+				"updated_at": 1734893275413,
 				"verification": {
 					"attempts": null,
 					"expire_at": null,
@@ -27,42 +28,39 @@
 				}
 			}
 		],
+		"enterprise_accounts": [],
 		"external_accounts": [
 			{
 				"approved_scopes": "email https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid profile",
-				"created_at": 1725656310581,
-				"email_address": "",
+				"created_at": 1734893265357,
+				"email_address": "vanxhyt@gmail.com",
 				"family_name": "",
-				"given_name": "",
-				"google_id": "",
-				"id": "",
+				"given_name": "Vanxh",
+				"google_id": "111752468917718861864",
+				"id": "idn_2qaGRhU1cIhQhGYVUGLfajVTzoq",
 				"label": null,
 				"object": "google_account",
-				"picture": "",
+				"picture": "https://lh3.googleusercontent.com/a/ACg8ocLfpFwRxXrEEecjZMic32Usvn7a8h9rGurGAjn8eBzJdrD3Nxm9=s1000-c",
 				"public_metadata": {},
-				"updated_at": 1725656310581,
+				"updated_at": 1734893265357,
 				"username": null,
 				"verification": {
 					"attempts": null,
-					"error": {
-						"code": "external_account_missing_refresh_token",
-						"long_message": "We cannot refresh your OAuth access token because the server didn't provide a refresh token. Please re-connect your account.",
-						"message": "Missing refresh token"
-					},
-					"expire_at": 1725656906484,
+					"expire_at": 1734893857425,
 					"status": "verified",
 					"strategy": "oauth_google"
 				}
 			}
 		],
 		"external_id": null,
-		"first_name": "",
+		"first_name": "Vanxh",
 		"has_image": true,
-		"id": "",
-		"image_url": "",
-		"last_active_at": 1725656317989,
-		"last_name": "",
+		"id": "user_2qaGSyHEiWyEKL4GwyrmdtI5a7y",
+		"image_url": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycWFHU3lSNDhHdTBYZEV3Uk5zT2Q0UDhwSEgifQ",
+		"last_active_at": 1734893275361,
+		"last_name": "Wadhwa",
 		"last_sign_in_at": null,
+		"legal_accepted_at": null,
 		"locked": false,
 		"lockout_expires_in_seconds": null,
 		"mfa_disabled_at": null,
@@ -71,27 +69,28 @@
 		"passkeys": [],
 		"password_enabled": false,
 		"phone_numbers": [],
-		"primary_email_address_id": "",
+		"primary_email_address_id": "idn_2qaGRbh8bR4960Bhf3GfRX98vMX",
 		"primary_phone_number_id": null,
 		"primary_web3_wallet_id": null,
 		"private_metadata": {},
-		"profile_image_url": "",
+		"profile_image_url": "https://images.clerk.dev/oauth_google/img_2qaGSyR48Gu0XdEwRNsOd4P8pHH",
 		"public_metadata": {},
 		"saml_accounts": [],
 		"totp_enabled": false,
 		"two_factor_enabled": false,
 		"unsafe_metadata": {},
-		"updated_at": 1725656318066,
-		"username": "",
+		"updated_at": 1734893275452,
+		"username": "vanxh",
 		"verification_attempts_remaining": 100,
 		"web3_wallets": []
 	},
 	"event_attributes": {
 		"http_request": {
-			"client_ip": "",
-			"user_agent": ""
+			"client_ip": "81.17.123.85",
+			"user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 		}
 	},
 	"object": "event",
-	"type": "user.created"
+	"type": "user.created",
+	"timestamp": 1734893275537
 }

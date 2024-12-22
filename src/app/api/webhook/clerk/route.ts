@@ -53,6 +53,14 @@ export async function POST(req: Request) {
 					throw new Error("Invalid user created event");
 				}
 
+				const user = await db.query.users.findFirst({
+					where: (user, { eq }) => eq(user.clerkId, evt.data.id),
+				});
+
+				if (user) {
+					break;
+				}
+
 				await db.insert(users).values({
 					clerkId: evt.data.id,
 					email,
@@ -74,11 +82,13 @@ export async function POST(req: Request) {
 				break;
 		}
 
-		return new Response("", { status: 200 });
+		return new Response(JSON.stringify({ message: "Event handled" }), {
+			status: 200,
+		});
 	} catch (error) {
 		console.error("[Clerk] Error occured", error);
 
-		return new Response("Error occured", {
+		return new Response(JSON.stringify({ message: "Error occured" }), {
 			status: 500,
 		});
 	}

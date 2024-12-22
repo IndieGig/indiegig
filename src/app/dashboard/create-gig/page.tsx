@@ -1,7 +1,9 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 import { GigCard } from "@/components/gig-card";
@@ -25,29 +27,14 @@ import {
 } from "@/components/ui/select";
 import { categories } from "@/lib/category";
 import { UploadButton } from "@/lib/uploadthing";
+import { createGigSchema } from "@/server/api/schema/user";
+import { api } from "@/trpc/react";
 
-const formSchema = z.object({
-	title: z
-		.string()
-		.min(32, "Title must be at least 32 characters")
-		.max(100, "Title must be at most 100 characters"),
-	description: z
-		.string()
-		.min(100, "Description must be at least 100 characters")
-		.max(1000, "Description must be at most 1000 characters"),
-	price: z
-		.number()
-		.min(1, "Price must be at least 1 USD")
-		.max(10000, "Price must be at most 10000 USD"),
-	category: z
-		.string()
-		.refine((value) => categories.some((category) => category.id === value), {
-			message: "Invalid category",
-		}),
-	imageUrl: z.string().url("Invalid image URL"),
-});
+const formSchema = createGigSchema;
 
 export default function Page() {
+	const router = useRouter();
+
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -58,8 +45,18 @@ export default function Page() {
 		},
 	});
 
+	const createGig = api.user.createGig.useMutation({
+		onSuccess: () => {
+			toast.success("Gig created successfully");
+			router.push("/dashboard");
+		},
+		onError: (error) => {
+			toast.error(error.message);
+		},
+	});
+
 	const onSubmit = (values: z.infer<typeof formSchema>) => {
-		console.log(values);
+		createGig.mutate(values);
 	};
 
 	const gigTitle = form.watch("title");
@@ -112,7 +109,15 @@ export default function Page() {
 								<FormItem>
 									<FormLabel>Price</FormLabel>
 									<FormControl>
-										<Input placeholder="" type="number" {...field} />
+										<Input
+											placeholder=""
+											type="number"
+											{...field}
+											onChange={(e) => {
+												const value = e.target.valueAsNumber;
+												field.onChange(value);
+											}}
+										/>
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -164,7 +169,12 @@ export default function Page() {
 						</div>
 
 						<div className="flex justify-end">
-							<Button type="submit">Submit</Button>
+							<Button
+								type="submit"
+								disabled={createGig.isPending || !form.formState.isValid}
+							>
+								{createGig.isPending ? "Creating..." : "Submit"}
+							</Button>
 						</div>
 					</form>
 				</Form>
