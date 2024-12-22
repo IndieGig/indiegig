@@ -1,6 +1,7 @@
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import { integer, text } from "drizzle-orm/sqlite-core";
 import { createTable } from "./_table";
+import { gigs } from "./gig";
 
 export const users = createTable("users", {
 	id: integer("id").primaryKey(),
@@ -18,6 +19,10 @@ export const users = createTable("users", {
 		() => new Date(),
 	),
 });
+
+export const userRelations = relations(users, ({ many }) => ({
+	gigs: many(gigs),
+}));
 
 export type InsertUser = typeof users.$inferInsert;
 export type SelectUser = typeof users.$inferSelect;
