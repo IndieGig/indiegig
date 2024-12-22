@@ -24,18 +24,27 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { categories } from "@/lib/category";
+import { UploadButton } from "@/lib/uploadthing";
 
 const formSchema = z.object({
-	title: z.string().min(32, "Title must be at least 32 characters"),
+	title: z
+		.string()
+		.min(32, "Title must be at least 32 characters")
+		.max(100, "Title must be at most 100 characters"),
 	description: z
 		.string()
-		.min(100, "Description must be at least 100 characters"),
-	price: z.number().min(1, "Price must be at least 1 USD"),
+		.min(100, "Description must be at least 100 characters")
+		.max(1000, "Description must be at most 1000 characters"),
+	price: z
+		.number()
+		.min(1, "Price must be at least 1 USD")
+		.max(10000, "Price must be at most 10000 USD"),
 	category: z
 		.string()
 		.refine((value) => categories.some((category) => category.id === value), {
 			message: "Invalid category",
 		}),
+	imageUrl: z.string().url("Invalid image URL"),
 });
 
 export default function Page() {
@@ -55,6 +64,7 @@ export default function Page() {
 
 	const gigTitle = form.watch("title");
 	const gigPrice = form.watch("price");
+	const gigImageUrl = form.watch("imageUrl");
 
 	return (
 		<div className="grid lg:grid-cols-2 gap-6 container mx-auto py-6">
@@ -139,7 +149,18 @@ export default function Page() {
 
 						<div className="flex flex-col gap-2">
 							<FormLabel>Upload Image</FormLabel>
-							<Input type="file" />
+							<UploadButton
+								endpoint="imageUploader"
+								onClientUploadComplete={(res) => {
+									const imgUrl = res?.[0]?.url;
+									if (imgUrl) {
+										form.setValue("imageUrl", imgUrl);
+									}
+								}}
+								onUploadError={(error: Error) => {
+									console.log(error);
+								}}
+							/>
 						</div>
 
 						<div className="flex justify-end">
@@ -154,7 +175,7 @@ export default function Page() {
 				<GigCard
 					title={gigTitle.length ? gigTitle : "This is your gig title"}
 					price={gigPrice ?? 0}
-					imageUrl="/gig-image.jpeg"
+					imageUrl={gigImageUrl ?? "/demonslayer.webp"}
 					creator={{ name: "Vanxh", imageUrl: "/demonslayer.webp" }}
 				/>
 			</div>

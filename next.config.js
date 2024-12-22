@@ -6,6 +6,7 @@ const config = {
 		remotePatterns: [
 			{ hostname: "placehold.co" },
 			{ hostname: "images.unsplash.com" },
+			{ hostname: "utfs.io" },
 		],
 	},
 };
