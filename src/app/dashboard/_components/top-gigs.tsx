@@ -22,7 +22,7 @@ export default function TopGigs() {
 			title: "I will build you custom thumbnail for your youtube video",
 			price: 99,
 			imageUrl: "/demonslayer.webp",
-			creator: { name: "Vanxh", imageUrl: "/demonslayer.webp" },
+			creator: { name: "Shagun", imageUrl: "/demonslayer.webp" },
 		},
 		{
 			title: "I will build you your own custom discord bot",
