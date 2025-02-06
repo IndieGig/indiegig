@@ -10,5 +10,5 @@ export const getGigsSchema = z.object({
 		})
 		.optional(),
 	limit: z.number().optional().default(25),
-	offset: z.number().optional(),
+	cursor: z.number().optional(),
 });

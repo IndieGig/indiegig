@@ -9,7 +9,7 @@ export const gigsRouter = createTRPCRouter({
 				where: (gigs, { eq, and }) =>
 					and(input.category ? eq(gigs.category, input.category) : undefined),
 				limit: input.limit ?? 10,
-				offset: input.offset ?? 0,
+				offset: input.cursor ?? 0,
 				orderBy: (gigs, { desc }) => [desc(gigs.createdAt)],
 				with: {
 					user: {

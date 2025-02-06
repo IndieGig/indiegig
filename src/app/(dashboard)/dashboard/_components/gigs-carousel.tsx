@@ -38,7 +38,7 @@ export default function GigsCarousel({
 						{gigs.map((gig, index) => (
 							<CarouselItem
 								key={index}
-								className="pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/5"
+								className="pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
 							>
 								<GigCard
 									title={gig.title}

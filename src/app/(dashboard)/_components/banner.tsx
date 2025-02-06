@@ -2,13 +2,13 @@ import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import RecommendedActionCard from "./recommended-action-card";
+import RecommendedActionCard from "../dashboard/_components/recommended-action-card";
 
 export default async function Banner() {
 	const user = await currentUser();
 
 	return (
-		<div className="text-white p-4 relative">
+		<div className="text-white py-4 relative">
 			<Image
 				src="/demonslayer.webp"
 				alt="Demon Slayer"

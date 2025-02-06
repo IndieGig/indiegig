@@ -1,5 +1,5 @@
 import { api } from "@/trpc/server";
-import Banner from "./_components/banner";
+import Banner from "../_components/banner";
 import Categories from "./_components/categories";
 import GigsCarousel from "./_components/gigs-carousel";
 
