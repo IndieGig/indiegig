@@ -12,6 +12,14 @@ export default async function Page() {
 		category: "mobile-development",
 	});
 
+	const contentCreationGigs = await api.gigs.getGigs({
+		category: "content-creation",
+	});
+
+	const marketingGigs = await api.gigs.getGigs({
+		category: "marketing",
+	});
+
 	const botDevelopmentGigs = await api.gigs.getGigs({
 		category: "bot-development",
 	});
@@ -22,14 +30,6 @@ export default async function Page() {
 
 	const graphicDesignGigs = await api.gigs.getGigs({
 		category: "graphic-design",
-	});
-
-	const contentCreationGigs = await api.gigs.getGigs({
-		category: "content-creation",
-	});
-
-	const marketingGigs = await api.gigs.getGigs({
-		category: "marketing",
 	});
 
 	return (
@@ -49,6 +49,16 @@ export default async function Page() {
 					category="mobile-development"
 				/>
 				<GigsCarousel
+					title="Content Creation Gigs"
+					gigs={contentCreationGigs}
+					category="content-creation"
+				/>
+				<GigsCarousel
+					title="Marketing Gigs"
+					gigs={marketingGigs}
+					category="marketing"
+				/>
+				<GigsCarousel
 					title="Bot Development Gigs"
 					gigs={botDevelopmentGigs}
 					category="bot-development"
@@ -62,16 +72,6 @@ export default async function Page() {
 					title="Graphic Design Gigs"
 					gigs={graphicDesignGigs}
 					category="graphic-design"
-				/>
-				<GigsCarousel
-					title="Content Creation Gigs"
-					gigs={contentCreationGigs}
-					category="content-creation"
-				/>
-				<GigsCarousel
-					title="Marketing Gigs"
-					gigs={marketingGigs}
-					category="marketing"
 				/>
 			</div>
 		</main>
