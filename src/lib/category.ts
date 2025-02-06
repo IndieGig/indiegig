@@ -1,4 +1,5 @@
 import {
+	Bot,
 	Code2,
 	Megaphone,
 	Palette,
@@ -23,6 +24,14 @@ export const categories = [
 		icon: Smartphone,
 		color: "bg-purple-500",
 		lightColor: "bg-purple-100",
+	},
+	{
+		id: "bot-development",
+		name: "Bot Development",
+		description: "Find bot developers for your project.",
+		icon: Bot,
+		color: "bg-green-500",
+		lightColor: "bg-green-100",
 	},
 	{
 		id: "ui-ux-design",

@@ -3,6 +3,7 @@ import { CircleDollarSign } from "lucide-react";
 import Image from "next/image";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function GigCard({
 	title,
@@ -10,9 +11,9 @@ export function GigCard({
 	imageUrl,
 	creator,
 }: {
-	title: string;
-	price: number;
-	imageUrl: string;
+	title?: string;
+	price?: number;
+	imageUrl?: string;
 	creator: {
 		name: string;
 		imageUrl?: string;
@@ -21,12 +22,16 @@ export function GigCard({
 	return (
 		<div className="flex flex-col gap-y-2">
 			<div className="aspect-video relative">
-				<Image
-					src={imageUrl}
-					alt="placeholder"
-					fill
-					className="rounded-lg object-cover"
-				/>
+				{imageUrl ? (
+					<Image
+						src={imageUrl}
+						alt="placeholder"
+						fill
+						className="rounded-lg object-cover"
+					/>
+				) : (
+					<Skeleton className="rounded-lg h-full w-full" />
+				)}
 			</div>
 			<div>
 				<div className="flex items-start justify-between">
@@ -45,11 +50,13 @@ export function GigCard({
 					</div>
 				</div>
 
-				<h3 className="text-lg line-clamp-2 mt-1 leading-snug">{title}</h3>
+				<h3 className="text-lg line-clamp-2 mt-1 leading-snug">
+					{title?.length ? title : "This is your gig title"}
+				</h3>
 
 				<div className="flex items-center gap-x-1 mt-1">
 					<CircleDollarSign className="size-4" />
-					<span className="font-bold">{price} USD</span>
+					<span className="font-bold">{price ?? 0} USD</span>
 				</div>
 			</div>
 		</div>

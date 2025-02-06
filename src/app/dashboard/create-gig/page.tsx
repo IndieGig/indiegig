@@ -1,5 +1,6 @@
 "use client";
 
+import { useUser } from "@clerk/nextjs";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -25,11 +26,12 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import { categories } from "@/lib/category";
 import { UploadButton } from "@/lib/uploadthing";
+import { cn } from "@/lib/utils";
 import { createGigSchema } from "@/server/api/schema/user";
 import { api } from "@/trpc/react";
-import { useUser } from "@clerk/nextjs";
 
 const formSchema = createGigSchema;
 
@@ -77,12 +79,28 @@ export default function Page() {
 							name="title"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Title</FormLabel>
+									<FormLabel className="flex items-center gap-x-2">
+										Title{" "}
+										<span className="text-xs text-muted-foreground">
+											(min 12 characters)
+										</span>
+									</FormLabel>
 									<FormControl>
 										<Input placeholder="" {...field} />
 									</FormControl>
-									<FormDescription>Title of your gig.</FormDescription>
-									<FormMessage />
+									<FormDescription className="flex items-center gap-x-2">
+										Title of your gig.
+										<span
+											className={cn(
+												"ml-auto text-xs text-muted-foreground",
+												field.value.length > 100 || field.value.length < 12
+													? "text-red-500"
+													: "text-green-500",
+											)}
+										>
+											{field.value.length} / 100
+										</span>
+									</FormDescription>
 								</FormItem>
 							)}
 						/>
@@ -92,12 +110,31 @@ export default function Page() {
 							name="description"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Description</FormLabel>
+									<FormLabel className="flex items-center gap-x-2">
+										Description{" "}
+										<span className="text-xs text-muted-foreground">
+											(min 100 characters)
+										</span>
+									</FormLabel>
 									<FormControl>
-										<Input placeholder="" {...field} />
+										<Textarea
+											placeholder=""
+											{...field}
+											className="min-h-[100px]"
+										/>
 									</FormControl>
-									<FormDescription>
+									<FormDescription className="flex items-center gap-x-2">
 										Describe your gig in a few words.
+										<span
+											className={cn(
+												"ml-auto text-xs text-muted-foreground",
+												field.value.length > 1000 || field.value.length < 100
+													? "text-red-500"
+													: "text-green-500",
+											)}
+										>
+											{field.value.length} / 1000
+										</span>
 									</FormDescription>
 									<FormMessage />
 								</FormItem>
@@ -185,12 +222,12 @@ export default function Page() {
 			<div className="flex flex-col gap-6">
 				<h2 className="text-2xl font-semibold">Preview</h2>
 				<GigCard
-					title={gigTitle.length ? gigTitle : "This is your gig title"}
-					price={gigPrice ?? 0}
-					imageUrl={gigImageUrl ?? "/demonslayer.webp"}
+					title={gigTitle}
+					price={gigPrice}
+					imageUrl={gigImageUrl}
 					creator={{
 						name: user.user?.fullName ?? "User",
-						imageUrl: user.user?.imageUrl ?? "/demonslayer.webp",
+						imageUrl: user.user?.imageUrl,
 					}}
 				/>
 			</div>
