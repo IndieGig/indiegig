@@ -222,6 +222,7 @@ export default function Page() {
 			<div className="flex flex-col gap-6">
 				<h2 className="text-2xl font-semibold">Preview</h2>
 				<GigCard
+					id={0}
 					title={gigTitle}
 					price={gigPrice}
 					imageUrl={gigImageUrl}

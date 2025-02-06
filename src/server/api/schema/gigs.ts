@@ -12,3 +12,7 @@ export const getGigsSchema = z.object({
 	limit: z.number().optional().default(25),
 	cursor: z.number().optional(),
 });
+
+export const getGigByIdSchema = z.object({
+	id: z.number(),
+});

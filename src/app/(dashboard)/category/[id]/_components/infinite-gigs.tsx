@@ -59,6 +59,7 @@ export default function InfiniteGigs({ categoryId }: InfiniteGigsProps) {
 					{page.map((gig) => (
 						<GigCard
 							key={gig.id}
+							id={gig.id}
 							title={gig.title}
 							price={gig.price}
 							imageUrl={gig.imageUrl}

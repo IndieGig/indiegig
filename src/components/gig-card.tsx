@@ -3,6 +3,7 @@
 import { StarFilledIcon } from "@radix-ui/react-icons";
 import { CircleDollarSign } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -10,12 +11,14 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 
 export function GigCard({
+	id,
 	title,
 	price,
 	imageUrl,
 	creator,
 	className,
 }: {
+	id: number;
 	title?: string;
 	price?: number;
 	imageUrl?: string;
@@ -84,9 +87,11 @@ export function GigCard({
 							Starting at <span className="text-base">${price ?? 0}</span>
 						</span>
 					</div>
-					<Button variant="ghost" size="sm">
-						View Details
-					</Button>
+					<Link href={`/gigs/${id}`}>
+						<Button variant="ghost" size="sm">
+							View Details
+						</Button>
+					</Link>
 				</div>
 			</div>
 		</div>

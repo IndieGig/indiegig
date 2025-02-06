@@ -1,4 +1,4 @@
-import { getGigsSchema } from "../schema/gigs";
+import { getGigByIdSchema, getGigsSchema } from "../schema/gigs";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const gigsRouter = createTRPCRouter({
@@ -22,5 +22,23 @@ export const gigsRouter = createTRPCRouter({
 			});
 
 			return gigs;
+		}),
+
+	getGigById: protectedProcedure
+		.input(getGigByIdSchema)
+		.query(async ({ ctx, input }) => {
+			const gig = await ctx.db.query.gigs.findFirst({
+				where: (gigs, { eq }) => eq(gigs.id, input.id),
+				with: {
+					user: {
+						columns: {
+							username: true,
+							imageUrl: true,
+						},
+					},
+				},
+			});
+
+			return gig;
 		}),
 });

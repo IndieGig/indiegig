@@ -41,6 +41,7 @@ export default function GigsCarousel({
 								className="pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
 							>
 								<GigCard
+									id={gig.id}
 									title={gig.title}
 									price={gig.price}
 									imageUrl={gig.imageUrl}
