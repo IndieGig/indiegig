@@ -14,6 +14,8 @@ export const env = createEnv({
 				? z.string().optional()
 				: z.string(),
 		UPLOADTHING_TOKEN: z.string(),
+		RAZORPAY_KEY: z.string(),
+		RAZORPAY_SECRET: z.string(),
 	},
 	client: {
 		NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string(),
@@ -31,6 +33,8 @@ export const env = createEnv({
 		NEXT_PUBLIC_CLERK_SIGN_UP_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_UP_URL,
 		CLERK_WEBHOOK_SECRET: process.env.CLERK_WEBHOOK_SECRET,
 		UPLOADTHING_TOKEN: process.env.UPLOADTHING_TOKEN,
+		RAZORPAY_KEY: process.env.RAZORPAY_KEY,
+		RAZORPAY_SECRET: process.env.RAZORPAY_SECRET,
 	},
 	skipValidation: !!process.env.SKIP_ENV_VALIDATION,
 	emptyStringAsUndefined: true,
