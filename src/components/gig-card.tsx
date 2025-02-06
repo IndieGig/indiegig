@@ -38,7 +38,7 @@ export function GigCard({
 						src={imageUrl}
 						alt={title || "Gig image"}
 						fill
-						className="object-cover transition-transform duration-300 group-hover:scale-105"
+						className="object-cover"
 					/>
 				) : (
 					<Skeleton className="h-full w-full" />
@@ -82,11 +82,7 @@ export function GigCard({
 							Starting at <span className="text-base">${price ?? 0}</span>
 						</span>
 					</div>
-					<Button
-						variant="ghost"
-						size="sm"
-						className="hidden group-hover:inline-flex"
-					>
+					<Button variant="ghost" size="sm">
 						View Details
 					</Button>
 				</div>
