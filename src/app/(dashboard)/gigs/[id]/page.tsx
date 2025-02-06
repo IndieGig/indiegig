@@ -14,6 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import { toast } from "sonner";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -136,6 +137,7 @@ export default function GigDetails() {
 									variant="outline"
 									onClick={() => {
 										navigator.clipboard.writeText(window.location.href);
+										toast.success("Link copied to clipboard");
 									}}
 								>
 									<Share2 className="w-4 h-4 mr-2" />
