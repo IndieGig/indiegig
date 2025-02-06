@@ -1,7 +1,7 @@
 "use client";
 
 import { StarFilledIcon } from "@radix-ui/react-icons";
-import { CircleDollarSign } from "lucide-react";
+import { IndianRupee } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -82,9 +82,15 @@ export function GigCard({
 
 				<div className="flex items-center justify-between mt-auto pt-1">
 					<div className="flex items-center gap-x-1.5">
-						<CircleDollarSign className="size-4 text-muted-foreground" />
+						<IndianRupee className="size-4 text-muted-foreground" />
 						<span className="font-medium text-sm">
-							Starting at <span className="text-base">${price ?? 0}</span>
+							Starting at{" "}
+							<span className="text-base">
+								{price?.toLocaleString("en-IN", {
+									style: "currency",
+									currency: "INR",
+								}) ?? 0}
+							</span>
 						</span>
 					</div>
 					<Link href={`/gigs/${id}`}>

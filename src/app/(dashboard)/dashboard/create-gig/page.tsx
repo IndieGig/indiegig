@@ -219,7 +219,7 @@ export default function Page() {
 				</Form>
 			</div>
 
-			<div className="flex flex-col gap-6">
+			<div className="flex flex-col gap-6 max-h-[500px]">
 				<h2 className="text-2xl font-semibold">Preview</h2>
 				<GigCard
 					id={0}

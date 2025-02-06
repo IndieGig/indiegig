@@ -109,7 +109,12 @@ export default function GigDetails() {
 						<div className="bg-card p-6 rounded-lg border border-border sticky top-8 shadow-md">
 							<div className="mb-6">
 								<h3 className="text-xl font-semibold mb-2">Standard Package</h3>
-								<p className="text-3xl font-bold">${gig.price}</p>
+								<p className="text-3xl font-bold">
+									{gig.price.toLocaleString("en-IN", {
+										style: "currency",
+										currency: "INR",
+									})}
+								</p>
 							</div>
 
 							<div className="space-y-4 mb-6">
