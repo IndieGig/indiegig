@@ -13,13 +13,15 @@ export default function RecommendedActionCard() {
 	return (
 		<div
 			className={cn(
-				"bg-card relative overflow-hidden max-w-full rounded-xl p-6",
+				"relative overflow-hidden max-w-full rounded-xl p-6",
+				"bg-card text-card-foreground",
 				"border border-border/40 shadow-sm transition-all duration-300",
 				"hover:shadow-lg hover:border-primary/20",
 				"before:absolute before:inset-0 before:-translate-x-full",
 				"before:animate-[shimmer_2s_infinite]",
 				"before:bg-gradient-to-r",
-				"before:from-transparent before:via-white/10 before:to-transparent",
+				"before:from-transparent before:via-primary/5 before:to-transparent",
+				"dark:before:via-primary/10",
 			)}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
@@ -34,7 +36,8 @@ export default function RecommendedActionCard() {
 				<div className="flex items-start gap-x-4 sm:items-center">
 					<div
 						className={cn(
-							"bg-primary text-primary-foreground rounded-full p-3.5",
+							"rounded-full p-3.5",
+							"bg-primary text-primary-foreground",
 							"transition-transform duration-300",
 							isHovered ? "scale-110" : "",
 						)}
@@ -43,7 +46,7 @@ export default function RecommendedActionCard() {
 					</div>
 
 					<div className="flex flex-1 flex-col gap-y-1">
-						<h5 className="text-xl font-semibold tracking-tight">
+						<h5 className="text-xl font-semibold tracking-tight text-foreground">
 							Create a new gig
 						</h5>
 						<p className="text-sm text-muted-foreground leading-relaxed">
@@ -57,7 +60,9 @@ export default function RecommendedActionCard() {
 							size="lg"
 							className={cn(
 								"transition-all duration-300",
-								isHovered ? "bg-primary/90 scale-105 shadow-lg" : "shadow-sm",
+								isHovered
+									? "bg-primary/90 scale-105 shadow-lg dark:bg-primary/80"
+									: "shadow-sm",
 							)}
 						>
 							Create a Gig
