@@ -10,6 +10,7 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import { RouterOutputs } from "@/trpc/react";
+import Link from "next/link";
 
 export default function GigsCarousel({
 	title,
@@ -24,9 +25,11 @@ export default function GigsCarousel({
 		<div className="flex flex-col gap-2">
 			<div className="flex items-center justify-between">
 				<h2 className="text-2xl font-semibold">{title}</h2>
-				<Button variant="link" className="p-0" disabled={gigs.length === 0}>
-					Show All <ChevronRight className="size-4 ml-1" />
-				</Button>
+				<Link href={`/category/${category}`} className="p-0">
+					<Button variant="link">
+						Show All <ChevronRight className="size-4 ml-1" />
+					</Button>
+				</Link>
 			</div>
 
 			{gigs.length > 0 && (

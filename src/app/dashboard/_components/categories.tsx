@@ -6,6 +6,26 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export default function Categories() {
+	const colorClasses = {
+		"web-development": "bg-blue-500",
+		"mobile-development": "bg-purple-500",
+		"bot-development": "bg-green-500",
+		"ui-ux-design": "bg-red-500",
+		"graphic-design": "bg-yellow-500",
+		"content-creation": "bg-orange-500",
+		marketing: "bg-pink-500",
+	};
+
+	const lightColorClasses = {
+		"web-development": "bg-blue-100",
+		"mobile-development": "bg-purple-100",
+		"bot-development": "bg-green-100",
+		"ui-ux-design": "bg-red-100",
+		"graphic-design": "bg-yellow-100",
+		"content-creation": "bg-orange-100",
+		marketing: "bg-pink-100",
+	};
+
 	return (
 		<div className="flex flex-col gap-2">
 			<div className="flex items-center justify-between">
@@ -29,11 +49,16 @@ export default function Categories() {
 							<div
 								className={cn(
 									"flex h-6 w-6 shrink-0 items-center justify-center rounded-full",
-									category.color,
+									colorClasses[category.id as keyof typeof colorClasses],
 								)}
 							>
 								<category.icon
-									className={cn("size-3.5", category.lightColor)}
+									className={cn(
+										"size-3.5",
+										lightColorClasses[
+											category.id as keyof typeof lightColorClasses
+										],
+									)}
 								/>
 							</div>
 							<span className="text-sm font-medium">{category.name}</span>

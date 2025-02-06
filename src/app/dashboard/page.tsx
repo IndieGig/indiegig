@@ -28,6 +28,10 @@ export default async function Page() {
 		category: "content-creation",
 	});
 
+	const marketingGigs = await api.gigs.getGigs({
+		category: "marketing",
+	});
+
 	return (
 		<main className="flex flex-col gap-4">
 			<Banner />
@@ -63,6 +67,11 @@ export default async function Page() {
 					title="Content Creation Gigs"
 					gigs={contentCreationGigs}
 					category="content-creation"
+				/>
+				<GigsCarousel
+					title="Marketing Gigs"
+					gigs={marketingGigs}
+					category="marketing"
 				/>
 			</div>
 		</main>
