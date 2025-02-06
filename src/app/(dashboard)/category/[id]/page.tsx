@@ -1,3 +1,6 @@
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
+
 import { categories } from "@/lib/category";
 import Banner from "../../_components/banner";
 import InfiniteGigs from "./_components/infinite-gigs";
@@ -18,8 +21,15 @@ export default function CategoryPage({
 		<div className="flex flex-col gap-4">
 			<Banner />
 
-			<div className="container mx-auto flex flex-col gap-6">
-				<h1 className="text-2xl font-bold">{category.name}</h1>
+			<div className="container mx-auto flex flex-col gap-4">
+				<div className="flex flex-col gap-2">
+					<Link href="/dashboard" className="flex items-center gap-2">
+						<ArrowLeft className="size-4" />
+						Back to Dashboard
+					</Link>
+
+					<h1 className="text-2xl font-bold">{category.name}</h1>
+				</div>
 
 				<InfiniteGigs categoryId={id} />
 			</div>
