@@ -14,19 +14,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import { RazorpayOrderOptions, useRazorpay } from "react-razorpay";
 import { toast } from "sonner";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { env } from "@/env";
 import { api } from "@/trpc/react";
 
 export default function GigDetails() {
 	const params = useParams();
 	const id = params.id as string;
 
+	const {
+		Razorpay,
+		error: razorpayError,
+		isLoading: isRazorpayLoading,
+	} = useRazorpay();
+
+	const { data: user } = api.user.getUser.useQuery();
+
 	const { data: gig, isLoading } = api.gigs.getGigById.useQuery({
 		id: parseInt(id),
 	});
+
+	const { mutateAsync: createOrder } = api.razorpay.createOrder.useMutation();
 
 	if (!gig && !isLoading) {
 		return (
@@ -44,6 +56,29 @@ export default function GigDetails() {
 			</div>
 		);
 	}
+
+	const handleCreateOrder = async () => {
+		const order = await createOrder({ amount: gig.price * 100 });
+
+		const options: RazorpayOrderOptions = {
+			key: env.NEXT_PUBLIC_RAZORPAY_KEY,
+			amount: order.amount as number,
+			currency: "INR",
+			name: "Gig Order",
+			description: `You are ordering ${gig.title} from ${gig.user?.username}`,
+			order_id: order.id,
+			handler: function (response) {
+				toast.success("Payment Successful!");
+			},
+			prefill: {
+				name: user?.username,
+				email: user?.email,
+			},
+		};
+
+		const rzp = new Razorpay(options);
+		rzp.open();
+	};
 
 	return (
 		<div className="min-h-screen bg-background text-foreground">
@@ -133,7 +168,14 @@ export default function GigDetails() {
 							</div>
 
 							<div className="space-y-4 flex flex-col">
-								<Button>Continue (${gig.price})</Button>
+								<Button onClick={handleCreateOrder}>
+									Continue (
+									{gig.price.toLocaleString("en-IN", {
+										style: "currency",
+										currency: "INR",
+									})}
+									)
+								</Button>
 								<Button variant="outline">
 									<MessageSquare className="w-4 h-4 mr-2" />
 									Contact Seller

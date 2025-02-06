@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import TRPCProvider from "@/components/trpc-provider";
@@ -54,6 +55,11 @@ export default function RootLayout({
 							</ThemeProvider>
 						</TRPCProvider>
 					</TRPCReactProvider>
+
+					<Script
+						src="https://checkout.razorpay.com/v1/checkout.js"
+						strategy="beforeInteractive"
+					/>
 				</body>
 			</html>
 		</ClerkProvider>

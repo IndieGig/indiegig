@@ -3,6 +3,14 @@ import { createGigSchema } from "../schema/user";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const userRouter = createTRPCRouter({
+	getUser: protectedProcedure.query(async ({ ctx }) => {
+		const user = await ctx.db.query.users.findFirst({
+			where: (user, { eq }) => eq(user.clerkId, ctx.userId),
+		});
+
+		return user;
+	}),
+
 	createGig: protectedProcedure
 		.input(createGigSchema)
 		.mutation(async ({ ctx, input }) => {
