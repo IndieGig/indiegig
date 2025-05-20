@@ -92,7 +92,7 @@ export default function Footer() {
 							>
 								Shagun
 							</Link>*/}
-							<span>Shourya</span>
+							<span>Shaurya</span>
 						</div>
 					</nav>
 				</div>
