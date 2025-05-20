@@ -78,7 +78,7 @@ export default function Footer() {
 							<span className="text-sm font-semibold text-muted-foreground">
 								Developers
 							</span>
-							<Link
+							{/*<Link
 								target="_blank"
 								href="https://github.com/vanxh"
 								className="text-sm text-foreground hover:text-primary transition-colors"
@@ -91,7 +91,8 @@ export default function Footer() {
 								className="text-sm text-foreground hover:text-primary transition-colors"
 							>
 								Shagun
-							</Link>
+							</Link>*/}
+							<span>Shourya</span>
 						</div>
 					</nav>
 				</div>
